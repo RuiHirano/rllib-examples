@@ -1,1 +1,5 @@
 ray[rllib]
+ray[default]
+pygame
+tensorflow
+gym==0.22.0
