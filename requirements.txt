@@ -3,3 +3,4 @@ ray[default]
 pygame
 tensorflow
 gym==0.22.0
+aiohttp<3.8
