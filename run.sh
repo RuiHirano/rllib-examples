@@ -1,1 +1,1 @@
-docker-compose -f docker/docker-compose.yaml up -d
+docker run --rm -it -v $PWD/ray_results:/ray_results rllib-examples:latest bash -c $@
