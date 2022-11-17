@@ -1,5 +1,4 @@
-ray[rllib]
-ray[default]
+ray[rllib]==2.1.0
 pygame
 tensorflow
 gym==0.22.0
