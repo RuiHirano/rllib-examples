@@ -1,1 +1,1 @@
-docker run --rm -it -v $PWD/ray_results:/ray_results rllib-examples:latest bash -c $@
+docker run --rm -it -v $PWD/ray_results:/ray_results rllib-examples:latest $@
