@@ -1,1 +1,1 @@
-tensorboard --logdir=./ray_results
+tensorboard --logdir=./ray_results --bind_all

@@ -7,4 +7,4 @@ services:
     image: rllib-examples:latest
     container_name: rllib-examples
     volumes:
-      - "${PWD}/ray_results:/ray_results"
+      - "${PWD}/ray_results:/root/ray_results"
