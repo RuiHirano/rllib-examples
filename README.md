@@ -3,6 +3,15 @@
 
 ## Getting Started
 
+### Modify .env
+```
+cp .env.templete .env
+```
+
+```
+LOG_DIR=$PWD/ray_results
+```
+
 ### Build
 ```
 ./build.sh
@@ -10,12 +19,12 @@
 
 ### Train
 ```
-./run.sh rllib train -f config/cartpole-dqn.yaml　--checkpoint-freq　1000
+./run.sh rllib train -f config/cartpole-dqn.yaml --checkpoint-freq=1000
 ```
 
 ### Restore and Train
 ```
-./run.sh rllib train -f config/cartpole-dqn.yaml　--checkpoint-freq　1000 --restore=[checkpoint_path]
+./run.sh rllib train -f config/cartpole-dqn.yaml --checkpoint-freq=1000 --restore=[checkpoint_path]
 ```
 
 ### Evaluating
