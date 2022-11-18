@@ -3,11 +3,11 @@ pong-r2d2:
     run: R2D2
     stop:
         episode_reward_mean: 21
-        timesteps_total: 1000000
+        timesteps_total: 10000000
     config:
         # Works for both torch and tf.
         framework: torch
-        num_workers: 3
+        num_workers: 5
         num_gpus: 1
         # R2D2 settings.
         replay_buffer_config:
