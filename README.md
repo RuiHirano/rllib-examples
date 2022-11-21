@@ -14,28 +14,28 @@ LOG_DIR=$PWD/ray_results
 
 ### Build
 ```
-./build.sh
+./build
 ```
 
 ### Train
 ```
-./run.sh rllib train -f config/cartpole-dqn.yaml --checkpoint-freq=1000
+./run rllib train -f config/cartpole-dqn.yaml --checkpoint-freq 1000
 ```
 
 ### Restore and Train
 ```
-./run.sh rllib train -f config/cartpole-dqn.yaml --checkpoint-freq=1000 --restore=[checkpoint_path]
+./run rllib train -f config/cartpole-dqn.yaml --checkpoint-freq 1000 --restore [checkpoint_path]
 ```
 
 ### Evaluating
 
 ```
-./run.sh rllib rollout ~/ray_results/default/DQN_CartPole-v0_0upjmdgr0/checkpoint_1/checkpoint-1 --run DQN --env CartPole-v0 --steps 10000
+./run rllib rollout ~/ray_results/default/DQN_CartPole-v0_0upjmdgr0/checkpoint_1/checkpoint-1 --run DQN --env CartPole-v0 --steps 10000
 ```
 
 ### Using Tensorboard
 ```
-./tb.sh
+./tb
 ```
 
 view at http://localhost:6006

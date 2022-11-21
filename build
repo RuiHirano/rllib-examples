@@ -1,0 +1,3 @@
+source ./.env
+echo LOG_DIR:  $LOG_DIR
+docker build --build-arg LOG_DIR=$LOG_DIR -t rllib-examples:latest -f docker/Dockerfile .

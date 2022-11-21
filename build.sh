@@ -1,1 +1,0 @@
-docker build -t rllib-examples:latest -f docker/Dockerfile .
