@@ -1,3 +1,4 @@
 source ./.env
 echo LOG_DIR:  $LOG_DIR
-tensorboard --logdir=$LOG_DIR --bind_all
+echo TENSORBOARD_PORT:  $TENSORBOARD_PORT
+tensorboard --logdir=$LOG_DIR --port $TENSORBOARD_PORT --bind_all
