@@ -1,4 +1,1 @@
-source ./.env
-echo LOG_DIR:  $LOG_DIR
-echo TENSORBOARD_PORT:  $TENSORBOARD_PORT
-tensorboard --logdir=$LOG_DIR --port $TENSORBOARD_PORT --bind_all
+./run tensorboard --logdir=/root/ray_results --port 6006 --bind_all
