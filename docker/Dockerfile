@@ -6,6 +6,6 @@ WORKDIR /root/rllib-examples
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-ARG LOG_DIR
+ENV LOG_DIR=/root/ray_results
 ENTRYPOINT ["tensorboard", "--logdir=$LOG_DIR", "--bind_all"]
 CMD ["bash"]
