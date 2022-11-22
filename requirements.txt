@@ -6,3 +6,4 @@ aiohttp<3.8
 gym[atari]
 autorom[accept-rom-license]
 gym-super-mario-bros
+opencv-python
