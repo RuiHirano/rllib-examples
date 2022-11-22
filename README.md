@@ -10,7 +10,7 @@ cp .env.templete .env
 
 Edit .env
 ```
-LOG_DIR=$PWD/ray_results
+RAY_RESULTS_DIR=$PWD/ray_results
 TENSORBOARD_PORT=6006
 ```
 
