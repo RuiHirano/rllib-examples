@@ -1,6 +1,8 @@
-stateless-cartpole-r2d2:
+cartpole-r2d2:
     env: CartPole-v1
     run: R2D2
+    checkpoint_config:
+        checkpoint_frequency: 100
     stop:
         episode_reward_mean: 150
         timesteps_total: 1000000

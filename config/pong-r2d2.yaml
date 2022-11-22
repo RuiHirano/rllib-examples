@@ -4,6 +4,7 @@ pong-r2d2:
     stop:
         episode_reward_mean: 21
         timesteps_total: 10000000
+        training_iteration: 10
     config:
         # Works for both torch and tf.
         framework: torch

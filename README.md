@@ -21,12 +21,12 @@ TENSORBOARD_PORT=6006
 
 ### Train
 ```
-./run rllib train -f config/cartpole-dqn.yaml --checkpoint-freq 1000
+./run rllib train -f config/cartpole-dqn.yaml
 ```
 
 ### Restore and Train
 ```
-./run rllib train -f config/cartpole-dqn.yaml --checkpoint-freq 1000 --restore [checkpoint_path]
+./run rllib train -f config/cartpole-dqn.yaml
 ```
 
 ### Evaluating
