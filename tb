@@ -1,4 +1,5 @@
 source ./.env
 echo RAY_RESULTS_DIR:  $RAY_RESULTS_DIR
 echo TENSORBOARD_PORT:  $TENSORBOARD_PORT
+echo COMMAND: $@
 docker run --rm -it -v $RAY_RESULTS_DIR:$RAY_RESULTS_DIR -p $TENSORBOARD_PORT:6006 rllib-examples:latest tensorboard --logdir=$RAY_RESULTS_DIR --port 6006 --bind_all

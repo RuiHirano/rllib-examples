@@ -1,3 +1,4 @@
 source ./.env
 echo RAY_RESULTS_DIR:  $RAY_RESULTS_DIR
-docker run --rm -it -v $RAY_RESULTS_DIR:/root/ray_results -v $PWD:/root/rllib-examples rllib-examples:latest $@
+echo COMMAND: $@
+docker run --rm -it -v $RAY_RESULTS_DIR:/root/ray_results -v $RAY_RESULTS_DIR:$RAY_RESULTS_DIR -v $PWD:/root/rllib-examples rllib-examples:latest $@

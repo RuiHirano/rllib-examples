@@ -25,6 +25,19 @@ TENSORBOARD_PORT=6006
 ```
 
 ### Restore and Train
+
+./config/cartpole-dqn.yaml
+```
+cartpole-dqn:
+    env: CartPole-v1
+    run: DQN
+    restore: xxx/xxx/checkpoint  <- Add restore option
+    stop:
+        episode_reward_mean: 100
+        timesteps_total: 100000
+    ...
+```
+
 ```
 ./run rllib train -f config/cartpole-dqn.yaml
 ```
@@ -32,7 +45,13 @@ TENSORBOARD_PORT=6006
 ### Evaluating
 
 ```
-./run rllib rollout ~/ray_results/default/DQN_CartPole-v0_0upjmdgr0/checkpoint_1/checkpoint-1 --run DQN --env CartPole-v0 --steps 10000
+./run rllib rollout /path/to/ray_results/xxx/checkpoint --run DQN --env CartPole-v1 --steps 10000
+```
+
+if you run source command, you can use $RAY_RESULTS_DIR variable.
+```
+source ./.env
+./run rllib rollout $RAY_RESULTS_DIR/xxx/checkpoint --run DQN --env CartPole-v1 --steps 10000
 ```
 
 ### Using Tensorboard
