@@ -1,4 +1,3 @@
 source ./.env
 echo RAY_RESULTS_DIR:  $RAY_RESULTS_DIR
-echo TENSORBOARD_PORT:  $TENSORBOARD_PORT
-docker run --rm -it -v $RAY_RESULTS_DIR:/root/ray_results -p $TENSORBOARD_PORT:6006 rllib-examples:latest $@
+docker run --rm -it -v $RAY_RESULTS_DIR:/root/ray_results rllib-examples:latest $@
