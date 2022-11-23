@@ -9,5 +9,6 @@ super-mario-dqn:
         framework: torch
         num_gpus: 1
         n_step: 3
+        double_q: true
         model:
             custom_model: models.mario-net.MarioNet
