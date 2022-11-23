@@ -1,8 +1,9 @@
 ray[rllib]==2.1.0
 pygame
-tensorflow
 gym==0.22.0
 aiohttp<3.8
 gym[atari]
 autorom[accept-rom-license]
 gym-super-mario-bros
+torch
+torchvision

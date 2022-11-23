@@ -2,10 +2,12 @@ super-mario-dqn:
     env: env.super-mario-env.SuperMarioBrosEnv
     run: DQN
     checkpoint_config:
-        checkpoint_frequency: 100
+        checkpoint_frequency: 1000
     stop:
         timesteps_total: 10000000
     config:
         framework: torch
         num_gpus: 1
         n_step: 3
+        model:
+            custom_model: models.mario-net.MarioNet
