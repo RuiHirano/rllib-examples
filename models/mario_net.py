@@ -62,3 +62,4 @@ class MarioNet(TorchModelV2, nn.Module):
                 (action_scores, z, support_logits_per_action, logits, dist)
         """
         return model_out
+    

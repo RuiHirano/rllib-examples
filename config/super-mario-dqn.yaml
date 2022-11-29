@@ -1,5 +1,5 @@
 super-mario-dqn:
-    env: env.super-mario-env.SuperMarioBrosEnv
+    env: env.super_mario_env.SuperMarioBrosEnv
     run: DQN
     checkpoint_config:
         checkpoint_frequency: 1000
@@ -8,7 +8,14 @@ super-mario-dqn:
     config:
         framework: torch
         num_gpus: 1
-        n_step: 3
         double_q: true
         model:
-            custom_model: models.mario-net.MarioNet
+            #custom_model: models.mario_net.MarioNet
+            conv_filters: [
+                [32, 8, 4],
+                [64, 4, 2],
+                [64, 3, 1],
+            ]
+            conv_activation: "relu"
+            post_fcnet_hiddens: [3136, 512]
+            post_fcnet_activation: "relu"
