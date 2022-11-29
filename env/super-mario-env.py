@@ -43,6 +43,21 @@ class GrayScaleObservation(gym.ObservationWrapper):
         observation = transform(observation)
         return observation
 
+class UnPermuteObservation(gym.ObservationWrapper):
+    def __init__(self, env):
+        super().__init__(env)
+        obs_shape = self.observation_space.shape[1:]+self.observation_space.shape[0:1]
+        self.observation_space = Box(low=0, high=1, shape=obs_shape)
+
+    def unpermute_orientation(self, observation):
+        # permute [C, H, W] array to [H, W, C] tensor
+        observation = np.transpose(observation, (1, 2, 0))
+        return observation
+
+    def observation(self, observation):
+        observation = self.unpermute_orientation(observation)
+        return observation
+    
 class ResizeObservation(gym.ObservationWrapper):
     def __init__(self, env, shape):
         super().__init__(env)
@@ -52,7 +67,7 @@ class ResizeObservation(gym.ObservationWrapper):
             self.shape = tuple(shape)
 
         obs_shape = self.shape + self.observation_space.shape[2:]
-        self.observation_space = Box(low=0, high=255, shape=obs_shape, dtype=np.uint8)
+        self.observation_space = Box(low=0, high=1, shape=obs_shape, dtype=np.float)
 
     def observation(self, observation):
         transforms = T.Compose(
@@ -78,6 +93,7 @@ class SuperMarioBrosEnv(gym.Wrapper):
         env = ResizeObservation(env, shape=84)
         env = FrameStack(env, num_stack=4)
         env = ClipRewardEnv(env)
+        env = UnPermuteObservation(env)
         super(SuperMarioBrosEnv, self).__init__(env)
 
 if __name__ == "__main__":
@@ -91,5 +107,6 @@ if __name__ == "__main__":
             step += 1
             state, reward, done, info = env.step(env.action_space.sample())
             print("episode: {}, step: {}, reward: {}, done: {}, info: {}, state_shape: {}".format(epi, step, reward, done, info, np.shape(state)))
+            print(state, env.observation_space)
             #env.render()
     env.close()
