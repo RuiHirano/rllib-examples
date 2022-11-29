@@ -61,6 +61,14 @@ class ResizeObservation(gym.ObservationWrapper):
         observation = transforms(observation).squeeze(0)
         return observation
 
+class ClipRewardEnv(gym.RewardWrapper):
+    def __init__(self, env):
+        gym.RewardWrapper.__init__(self, env)
+
+    def reward(self, reward):
+        """Bin reward to {+1, 0, -1} by its sign."""
+        return np.sign(reward)
+    
 class SuperMarioBrosEnv(gym.Wrapper):
     def __init__(self):
         env = gym_super_mario_bros.make('SuperMarioBros-v0')
@@ -69,6 +77,7 @@ class SuperMarioBrosEnv(gym.Wrapper):
         env = GrayScaleObservation(env)
         env = ResizeObservation(env, shape=84)
         env = FrameStack(env, num_stack=4)
+        env = ClipRewardEnv(env)
         super(SuperMarioBrosEnv, self).__init__(env)
 
 if __name__ == "__main__":
